@@ -1,4 +1,15 @@
 Messages = new Meteor.Collection('messages');
+var player1 = true;
+var red = new Array();
+var blue = new Array();
+
+var checkwin = function(){
+alert(Arrays.asList(red).contains(0));
+  
+  if(countClick > 8){
+    alert("no one won" + countClick)
+  }
+};
 
 if (Meteor.isClient) {
   var countClick = 0;
@@ -11,9 +22,23 @@ if (Meteor.isClient) {
     'click': function (event) {
 
       var clickedElement = event.target;
-      $(clickedElement).css("background-color",'#f00');
-    
+      console.log(clickedElement.id);
+
+  if(player1 == true){
+     $(clickedElement).css("background-color",'#f00');
+     player1 = false;
+     red.push(clickedElement.id)
     }
+  else{
+    $(clickedElement).css("background-color",'#00f');
+    player1 = true;
+    blue.push(clickedElement.id)
+}
+
+      checkwin();
+      countClick++;
+    }
+
   }
 
 
@@ -44,6 +69,7 @@ if (Meteor.isClient) {
 
 if (Meteor.is_server) {
   Meteor.startup(function () {
-    // code to run on server at startup
+
+
   });
 }
