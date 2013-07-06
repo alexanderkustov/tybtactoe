@@ -5,6 +5,12 @@ if (Meteor.isClient) {
   Template.messages.messages = function(){
     return Messages.find({}, { sort: { time: -1 }});
   }
+  
+  Template.gameboard.events ={
+    "click #table": function(event){
+      console.log("adasd");
+    }
+  }
 
 
   Template.entryfield.events = {
@@ -24,6 +30,10 @@ if (Meteor.isClient) {
           message: message.value,
           time: Date.now()
         });
+
+      if(message.value == 1){
+        $(cell0).css("background-color",'#333 ');
+      }
 
         message.value = '';
       }
