@@ -35,12 +35,12 @@ if (Meteor.isClient) {
       });
 
       if(player1 == true){
-       $(clickedElement).css("background-color",'#f00');
+       $(clickedElement).css("background-color",'#fbcece');
         player1 = false;
        red.push(clickedElement.id)
      }
      else{
-      $(clickedElement).css("background-color",'#00f');
+      $(clickedElement).css("background-color",'#bebeff');
       player1 = true;
       blue.push(clickedElement.id)
     }
@@ -73,6 +73,8 @@ Template.entryfield.events = {
 }
   if (Meteor.is_server) {
     Meteor.startup(function () {
+      Jogadas.remove({});
+      Messages.remove({});
     //nada
   });
 }

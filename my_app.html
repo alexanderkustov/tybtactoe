@@ -4,27 +4,56 @@
 
 <body>
 	<div class="container">
-		<div class="row">
-			<div class="span12">
-				{{loginButtons}}
+		<div class="navbar">
+			<div class="navbar-inner">
+				<li class="brand">Tyb-Tac-Toe</li>
+			<ul class="nav pull-right">
+			<li>{{loginButtons}}
+			</li>
+		</ul>
 			</div>
 		</div>
 		<hr>
 
 		<div class="row">
-			<div class="span6">
+			<div class="span2">
 				{{> entryfield}}
 
 				{{> messages}}
-
-				<hr>
-
 			</div>
 
-			<div class="span3">
-			{{> jogadas}}
-			
-			{{> gameboard}}
+			<div class="span9">
+				{{> jogadas}}
+				<div class="row">
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+					<div class="span3">
+						{{> gameboard}}
+					</div>
+
+				</div>
 
 			</div>
 		</div>
@@ -52,20 +81,20 @@
 <template name="gameboard">
 
 	<table class="table" id="table">
-				<tr>
-                  <td id="0">0</td>
-                  <td id="1">1</td>
-                  <td id="2">2</td>
-                </tr>
-                <tr>
-                  <td id="3">3</td>
-                  <td id="4">4</td>
-                  <td id="5">5</td>
-                </tr>
-                <tr>
-                 <td id="6">6</td>
-                  <td id="7">7</td>
-                  <td id="8">8</td>
-                </tr>
-				</table>
-	</template>
+		<tr>
+			<td id="0">0</td>
+			<td id="1">1</td>
+			<td id="2">2</td>
+		</tr>
+		<tr>
+			<td id="3">3</td>
+			<td id="4">4</td>
+			<td id="5">5</td>
+		</tr>
+		<tr>
+			<td id="6">6</td>
+			<td id="7">7</td>
+			<td id="8">8</td>
+		</tr>
+	</table>
+</template>
