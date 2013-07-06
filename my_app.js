@@ -13,7 +13,9 @@ if (Meteor.isClient) {
       if(event.which == 13){
       // Submit the form
       var emails = Meteor.user().emails[0].address;
+
       console.log(emails)
+
       var message = document.getElementById('message');
 
       if(message.value != ''){

@@ -1,28 +1,41 @@
 <head>
-  <title>chat</title>
+	<title>chat</title>
 </head>
 
 <body>
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				{{loginButtons}}
+			</div>
+		</div>
+		<hr>
 
-  {{loginButtons}}
-<hr>
-  {{> entryfield}}
+		<div class="row">
+			<div class="span6">
+				{{> entryfield}}
 
-  {{> messages}}
+				{{> messages}}
 
-<hr>
+				<hr>
 
+			</div>
+			<div class="span6">
+				{{> gameboard}}
 
+			</div>
+		</div>
+	</div>
 </body>
 
 <template name="entryfield">
-    <input type="text" id="message" placeholder="Your Message" />
+	<input type="text" id="message" placeholder="Your Message" />
 </template>
 
 <template name="messages">
-    <p>
-        {{#each messages}}
-            <strong>{{name}}</strong>- {{message}}<br/>
-        {{/each}}
-    </p>
+	<p>
+		{{#each messages}}
+		<strong>{{emails}}</strong>- {{message}}<br/>
+		{{/each}}
+	</p>
 </template>
