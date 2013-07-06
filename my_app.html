@@ -22,6 +22,8 @@
 			</div>
 
 			<div class="span3">
+			{{> jogadas}}
+			
 			{{> gameboard}}
 
 			</div>
@@ -41,10 +43,14 @@
 	</p>
 </template>
 
-<template name="gameboard">
+<template name="jogadas">
 	{{#each jogadas}}
-		<strong>{{jogadas}}</strong>
+		{{jogada}}
 	{{/each}}
+</template>
+
+<template name="gameboard">
+
 	<table class="table" id="table">
 				<tr>
                   <td id="0">0</td>

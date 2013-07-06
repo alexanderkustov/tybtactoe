@@ -16,8 +16,6 @@ if (Meteor.isClient) {
     return Jogadas.find({}, { sort: { time: -1 }});
   }
 
-
-
   Template.messages.messages = function(){
     return Messages.find({}, { sort: { time: -1 }});
   }
@@ -27,11 +25,12 @@ if (Meteor.isClient) {
     'click': function (event) {
 
       var clickedElement = event.target;
+      var jogadas = clickedElement.id;
 
-      console.log(clickedElement.id);
+      console.log(jogadas);
 
       Jogadas.insert({
-        jogadas: clickedElement.id,
+        jogada: jogadas,
         time: Date.now()
       });
 
