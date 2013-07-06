@@ -1,14 +1,18 @@
 Messages = new Meteor.Collection('messages');
 
 if (Meteor.isClient) {
+  var countClick = 0;
 
   Template.messages.messages = function(){
     return Messages.find({}, { sort: { time: -1 }});
   }
-  
+
   Template.gameboard.events ={
-    "click #table": function(event){
-      console.log("adasd");
+    'click': function (event) {
+
+      var clickedElement = event.target;
+      $(clickedElement).css("background-color",'#f00');
+    
     }
   }
 
@@ -30,10 +34,6 @@ if (Meteor.isClient) {
           message: message.value,
           time: Date.now()
         });
-
-      if(message.value == 1){
-        $(cell0).css("background-color",'#333 ');
-      }
 
         message.value = '';
       }
