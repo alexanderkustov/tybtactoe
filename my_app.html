@@ -7,10 +7,10 @@
 		<div class="navbar">
 			<div class="navbar-inner">
 				<li class="brand">Tyb-Tac-Toe</li>
-			<ul class="nav pull-right">
-			<li>{{loginButtons}}
-			</li>
-		</ul>
+				<ul class="nav pull-right">
+					<li>{{loginButtons}}
+					</li>
+				</ul>
 			</div>
 		</div>
 		<hr>
@@ -26,49 +26,17 @@
 				<div class="row">
 					<div id="sortable">
 
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-					<span class="span3">
-						{{> gameboard}}
-					</span>
-									{{> jogadas}}
-
+						{{> bigboard}}
 					</div>
 				</div>
-
 			</div>
 		</div>
+		<hr>
+		{{> jogadas}}
+		<footer>
+			<p class="pull-right">Built with <a href="http://meteor.com/">Meteor</a>, it's not bad...</p>
+		</footer>
 	</div>
-	<script type="text/javascript">
-$(document).ready(function() {
-    $( "#sortable,#sortable2" ).sortable({
-        connectWith: "#sortable,#sortable2"
-    });
-    $( "#sortable,#sortable2" ).disableSelection();
-		});
-	</script>
 </body>
 
 <template name="entryfield">
@@ -85,14 +53,11 @@ $(document).ready(function() {
 
 <template name="jogadas">
 	{{#each jogadas}}
-		{{jogada}}
-		{{player}}
+	<strong>{{player}}</strong> :{{jogada}}
 	{{/each}}
 </template>
 
 <template name="gameboard">
-
-	<table class="table" id="table">
 		<tr>
 			<td id="0">0</td>
 			<td id="1">1</td>
@@ -108,5 +73,16 @@ $(document).ready(function() {
 			<td id="7">7</td>
 			<td id="8">8</td>
 		</tr>
+</template>
+
+<template name="bigboard">
+
+{{#each bigboard}}
+<span class="span3">
+	<table class="table" id="{{id}}">
+	{{> gameboard}}
 	</table>
+</span>
+{{/each}}
+
 </template>

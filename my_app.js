@@ -1,5 +1,7 @@
+Bigboard = new Meteor.Collection('bigboard')
 Messages = new Meteor.Collection('messages');
 Jogadas = new Meteor.Collection('jogadas');
+
 var current_player = 0;
 var player1 = true;
 
@@ -15,10 +17,24 @@ if (Meteor.isClient) {
     return Jogadas.find({}, { sort: { time: -1 }});
   }
 
+   Template.bigboard.bigboard = function(){
+    return Bigboard.find({}, { sort: { time: -1 }});
+  }
+
   Template.messages.messages = function(){
     return Messages.find({}, { sort: { time: -1 }});
   }
 
+  Template.gameboard.rendered = function() {
+    if(!this._rendered) {
+      this._rendered = true;
+    $("#sortable,#sortable2" ).sortable({
+        connectWith: "#sortable,#sortable2"
+    })
+    $( "#sortable,#sortable2" ).disableSelection();
+    }
+
+}
 
   Template.gameboard.events ={
     'click': function (event) {
@@ -80,6 +96,11 @@ Template.entryfield.events = {
     Meteor.startup(function () {
       Jogadas.remove({});
       Messages.remove({});
+
+      for(var i=0; i<9; i++){
+        Bigboard.insert({id: i});
+        console.log(i);
+      }
     //nada
   });
 }
