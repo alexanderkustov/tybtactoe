@@ -1,1 +1,28 @@
-/* CSS declarations go here */
+
+		.span3 table{background: #9ac93d; color:white; border-radius: 4px;}
+
+		.sortable {
+			margin: 0;
+			padding: 0;
+		}
+		.sortable:hover {
+			cursor:move;
+		}
+		.sidebar-nav{
+			padding: 10px 0px;
+		}
+		.thumbnail {
+			background-color: rgba(251,251,251,0.6);
+			/*margin-top:10px;*/
+			margin: 0;
+			padding: 0;
+		}
+
+        .ui-sortable-placeholder {
+            margin-left: 0 !important;
+        }
+
+#sortable, #sortable2 {
+    min-height: 300px;
+}
+}

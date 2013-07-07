@@ -1,12 +1,11 @@
 Messages = new Meteor.Collection('messages');
 Jogadas = new Meteor.Collection('jogadas');
-
+var current_player = 0;
 var player1 = true;
-var red = new Array();
-var blue = new Array();
 
 var checkwin = function(){
-
+  Jogadas.find({}, {sort: {jogadas: 1}});
+  console.log(Jogadas)
 };
 
 if (Meteor.isClient) {
@@ -29,20 +28,26 @@ if (Meteor.isClient) {
 
       console.log(jogadas);
 
+      if(player1 == false)
+        current_player=1;
+      else
+        current_player=0;
+
       Jogadas.insert({
         jogada: jogadas,
+        player: current_player,
         time: Date.now()
       });
 
       if(player1 == true){
        $(clickedElement).css("background-color",'#fbcece');
         player1 = false;
-       red.push(clickedElement.id)
+
      }
      else{
       $(clickedElement).css("background-color",'#bebeff');
       player1 = true;
-      blue.push(clickedElement.id)
+      checkwin();
     }
   }
 }
