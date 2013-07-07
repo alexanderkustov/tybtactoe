@@ -49,8 +49,13 @@ if (Meteor.isClient) {
       else
         current_player=0;
 
+      var board_id = $(clickedElement).closest(".table").attr("id");
+
+      console.log("board" + board_id);
+
       Jogadas.insert({
         jogada: jogadas,
+        board: board_id,
         player: current_player,
         time: Date.now()
       });
@@ -96,6 +101,7 @@ Template.entryfield.events = {
     Meteor.startup(function () {
       Jogadas.remove({});
       Messages.remove({});
+      Bigboard.remove({});
 
       for(var i=0; i<9; i++){
         Bigboard.insert({id: i});
