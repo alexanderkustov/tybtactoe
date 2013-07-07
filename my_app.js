@@ -42,8 +42,6 @@ if (Meteor.isClient) {
       var clickedElement = event.target;
       var jogadas = clickedElement.id;
 
-      console.log(jogadas);
-
       if(player1 == false)
         current_player=1;
       else
@@ -62,8 +60,8 @@ if (Meteor.isClient) {
 
       if(player1 == true){
        $(clickedElement).css("background-color",'#fbcece');
-        player1 = false;
 
+        player1 = false;
      }
      else{
       $(clickedElement).css("background-color",'#bebeff');
@@ -105,8 +103,8 @@ Template.entryfield.events = {
 
       for(var i=0; i<9; i++){
         Bigboard.insert({id: i});
-        console.log(i);
       }
-    //nada
+      //por cada board,  e depois cada celula, pintar a board
+
   });
 }
